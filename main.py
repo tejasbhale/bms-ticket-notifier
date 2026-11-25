@@ -20,8 +20,7 @@ import requests
 # CONFIGURATION — edit these or set via env vars
 # ──────────────────────────────────────────────────────────────────────
 CONFIG = {
-    "url": os.getenv(
-        "BMS_URL",
+    "url": os.getenv("BMS_URL") or (
         "https://in.bookmyshow.com/movies/chennai/dhurandhar-the-revenge/buytickets/ET00478890"
     ),
     "dates": os.getenv("BMS_DATES", ""),          # comma-separated YYYYMMDD, empty = from URL
@@ -31,7 +30,7 @@ CONFIG = {
 
 RESEND_API_KEY = os.getenv("RESEND_API_KEY", "")
 RESEND_TO_EMAIL = os.getenv("RESEND_TO_EMAIL", "")
-RESEND_FROM_EMAIL = os.getenv("RESEND_FROM_EMAIL", "aviiciii@resend.dev")
+RESEND_FROM_EMAIL = os.getenv("RESEND_FROM_EMAIL") or "aviiciii@resend.dev"
 
 STATE_FILE = "bms_state.json"
 
